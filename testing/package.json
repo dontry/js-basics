@@ -8,7 +8,9 @@
     "start": "node --require ./setup-global.js index.js",
     "commit": "git cz",
     "lint": "eslint src",
-    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\""
+    "prettier": "prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint & npm run prettier -- --list-different"
   },
   "keywords": [
     "test"
