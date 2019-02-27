@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "node --require ./setup-global.js index.js",
     "commit": "git cz",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\""
   },
   "keywords": [
     "test"
@@ -16,7 +17,8 @@
   "license": "MIT",
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^5.14.1"
+    "eslint": "^5.14.1",
+    "prettier": "^1.16.4"
   },
   "config": {
     "commitizen": {
