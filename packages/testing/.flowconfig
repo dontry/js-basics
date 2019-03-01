@@ -1,8 +1,11 @@
 [ignore]
+.*/node_modules
 
 [include]
 
 [libs]
+flow-libs/
+
 
 [lints]
 
