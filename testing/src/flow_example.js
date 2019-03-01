@@ -4,7 +4,7 @@ function add(a: number, b: number): number {
 }
 
 type User = {
-  name: {
+ n ame: {
     first: string,
     middle: string,
     last: string
