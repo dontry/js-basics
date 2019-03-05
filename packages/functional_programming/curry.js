@@ -26,4 +26,10 @@ yy;
 const noVowels = replace(/[aeiouy]/gi);
 const censored = noVowels("*");
 const res = censored("international");
-res;
+
+module.exports = {
+  match,
+  replace,
+  filter,
+  map
+};
