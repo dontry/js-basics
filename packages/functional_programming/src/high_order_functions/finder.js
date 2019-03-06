@@ -8,4 +8,10 @@ function finder(valueFun, bestFun, coll) {
   });
 }
 
+function best(fun, coll) {
+  return _.reduce(coll, (x, y) => {
+    return fun(x, y) ? x : y;
+  });
+}
+
 module.exports = finder;
