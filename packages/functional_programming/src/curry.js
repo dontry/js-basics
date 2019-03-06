@@ -8,12 +8,12 @@ const replace = _.curry(function(what, replacement, str) {
   return str.replace(what, replacement);
 });
 
-const filter = _.curry(function(f, ary) {
-  return ary.filter(f);
+const filter = _.curry(function(f, arr) {
+  return arr.filter(f);
 });
 
-const map = _.curry(function(f, ary) {
-  return ary.map(f);
+const map = _.curry(function(f, arr) {
+  return arr.map(f);
 });
 
 const xx = match(/\s+/g, "hello world");

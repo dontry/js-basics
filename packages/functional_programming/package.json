@@ -4,10 +4,14 @@
   "description": "",
   "main": "memoize.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src",
+    "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
+    "format": "yarn run prettier -- --write",
+    "validate": "npm run lint"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "dontry",
+  "license": "MIT",
   "dependencies": {
     "@types/jest": "^24.0.6",
     "lodash": "^4.17.11"
@@ -15,6 +19,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4"
   }
 }

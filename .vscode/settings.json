@@ -1,4 +1,10 @@
 {
     "flow.useNPMPackagedFlow": true,
-    "javascript.validate.enable": false
+    "javascript.validate.enable": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
