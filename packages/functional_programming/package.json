@@ -8,7 +8,7 @@
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "yarn run prettier -- --write",
-    "validate": "npm run lint && npm run test"
+    "validate": "lint-staged && npm run test"
   },
   "author": "dontry",
   "license": "MIT",
