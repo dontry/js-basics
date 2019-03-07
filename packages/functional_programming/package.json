@@ -7,8 +7,9 @@
     "test": "jest",
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
-    "format": "yarn run prettier -- --write",
-    "validate": "lint-staged && npm run test"
+    "format": "npm run prettier -- --write",
+    "validate-staged": "lint-staged && npm run test",
+    "validate": "npm run lint & npm run prettier -- --list-different && npm run test"
   },
   "author": "dontry",
   "license": "MIT",
@@ -18,7 +19,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.15.1",
     "jest": "^24.1.0",
     "lint-staged": "^8.1.5",
