@@ -18,9 +18,15 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.15.1",
     "jest": "^24.1.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

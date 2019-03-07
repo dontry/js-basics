@@ -9,3 +9,23 @@ describe("safe multiply", () => {
     expect(res).toEqual(30);
   });
 });
+
+describe("defaults", () => {
+  const defaults = d => (o, k) => {
+    const val = fnull(_.identity, d[k]);
+    return o && val(o[k]);
+  };
+
+  const doSomething = config => {
+    const lookup = defaults({ critical: 108 });
+    return lookup(config, "critical");
+  };
+
+  it("should return 9", () => {
+    expect(doSomething({ critical: 9 })).toEqual(9);
+  });
+
+  it("should return 108", () => {
+    expect(doSomething({})).toEqual(108);
+  });
+});
