@@ -10,7 +10,8 @@
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "npm run prettier -- --write",
-    "validate": "lint-staged",
+    "validate-staged": "lint-staged && npm run test",
+    "validate": "npm run lint & npm run prettier -- --list-different && npm run flow",
     "flow": "flow"
   },
   "keywords": [
@@ -31,5 +32,8 @@
     "commitizen": {
       "path": "./testing/node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "lint-staged": "^8.1.5"
   }
 }
