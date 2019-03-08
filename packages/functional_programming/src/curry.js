@@ -27,9 +27,18 @@ const noVowels = replace(/[aeiouy]/gi);
 const censored = noVowels("*");
 const res = censored("international");
 
+function curry2(func) {
+  return function(secondArg) {
+    return function(firstArg) {
+      return func(firstArg, secondArg);
+    };
+  };
+}
+
 module.exports = {
   match,
   replace,
   filter,
-  map
+  map,
+  curry2
 };

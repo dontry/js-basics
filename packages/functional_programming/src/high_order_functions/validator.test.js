@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const { checker, validator, hasKeys } = require("./validator");
+const { curry2 } = require("../curry");
 const always = require("./always");
 
 describe("checkers", () => {
@@ -58,5 +59,21 @@ describe("validators", () => {
       "must be an object",
       "Must have values for keys: msg, type"
     ]);
+  });
+
+  it("within range", () => {
+    const greaterThan = curry2(function(lhs, rhs) {
+      return lhs > rhs;
+    });
+    const lessThan = curry2(function(lhs, rhs) {
+      return lhs < rhs;
+    });
+    const withinRange = checker(
+      validator("must greater than 10", greaterThan(10)),
+      validator("must less than 20", lessThan(20))
+    );
+
+    expect(withinRange(30)).toEqual(["must less than 20"]);
+    expect(withinRange(0)).toEqual(["must greater than 10"]);
   });
 });
