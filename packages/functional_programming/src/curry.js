@@ -27,6 +27,12 @@ const noVowels = replace(/[aeiouy]/gi);
 const censored = noVowels("*");
 const res = censored("international");
 
+function curry(func) {
+  return function(arg) {
+    return func(arg);
+  };
+}
+
 function curry2(func) {
   return function(secondArg) {
     return function(firstArg) {
@@ -40,5 +46,6 @@ module.exports = {
   replace,
   filter,
   map,
-  curry2
+  curry2,
+  curry
 };
