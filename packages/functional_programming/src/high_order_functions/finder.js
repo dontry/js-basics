@@ -1,6 +1,6 @@
 const _ = require("lodash");
-function finder(valueFun, bestFun, coll) {
-  return _.reduce(coll, (best, current) => {
+function finder(valueFun, bestFun, collection) {
+  return _.reduce(collection, (best, current) => {
     const bestValue = valueFun(best);
     const currentValue = valueFun(current);
 
@@ -8,8 +8,8 @@ function finder(valueFun, bestFun, coll) {
   });
 }
 
-function best(fun, coll) {
-  return _.reduce(coll, (x, y) => {
+function best(fun, collection) {
+  return _.reduce(collection, (x, y) => {
     return fun(x, y) ? x : y;
   });
 }

@@ -16,7 +16,7 @@ const map = _.curry(function(f, arr) {
   return arr.map(f);
 });
 
-const xx = match(/\s+/g, "hello world");
+const xx = "hello world".match(/\s+/g);
 xx;
 
 const hasSpaces = match(/\s+/g);
