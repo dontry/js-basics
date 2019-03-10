@@ -1,4 +1,3 @@
-const _ = require("lodash");
 const cat = require("./cat");
 
 //(3, [1,2,3]) => ([3,1,2,3])
