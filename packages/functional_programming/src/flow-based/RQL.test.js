@@ -8,10 +8,11 @@ const library = [
     edition: 1
   },
   {
-    title: "The great Gatsby",
+    title: "The Great Gatsby",
     author: "Fitz Gerald",
     edition: 2
-  }
+  },
+  { title: "Functional Programming", author: "xxx", edition: 1 }
 ];
 
 describe("RQL", () => {
@@ -26,6 +27,6 @@ describe("RQL", () => {
       );
     }
 
-    expect(allFirstEditions(library).length).toEqual(1);
+    expect(allFirstEditions(library).length).toEqual(2);
   });
 });
