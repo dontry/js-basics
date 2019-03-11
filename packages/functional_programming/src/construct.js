@@ -1,6 +1,11 @@
 const cat = require("./cat");
 
-//(3, [1,2,3]) => ([3,1,2,3])
+/**
+ * (a, b, c, d) => [a, b, c, d]
+ * @param {*} head
+ * @param {*} tail
+ * @returns array
+ */
 function construct(head, tail) {
   return cat([head], Array.from(tail));
 }
