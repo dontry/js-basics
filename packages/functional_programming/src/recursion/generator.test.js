@@ -5,7 +5,7 @@ const cat = require("../cat");
 
 const ints = generator(0, x => x, x => x + 1);
 
-// a big defect of generator is the tail is not called before access
+// a big defect of generator is the tail is not executed before access
 // which means every access requires a recomputation
 // we should use heap more often than stack, because heap size is far larger than stack size
 describe("genTake", () => {
