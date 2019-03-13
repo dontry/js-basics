@@ -1,7 +1,7 @@
 //A more generic function of repeat
-function iterateUtils(func, check, init) {
+function iterateUtils(func, check, seed) {
   const ret = [];
-  let result = func(init);
+  let result = func(seed);
 
   while (check(result)) {
     ret.push(result);

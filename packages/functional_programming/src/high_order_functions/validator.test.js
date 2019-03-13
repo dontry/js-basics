@@ -1,6 +1,17 @@
 const _ = require("lodash");
-const { checker, validator, hasKeys } = require("./validator");
+const { checker, validator } = require("./validator");
 const always = require("./always");
+
+function hasKeys() {
+  const KEYS = Array.from(arguments);
+  const func = function(obj) {
+    return KEYS.every(function(key) {
+      return _.has(obj, key);
+    });
+  };
+  func.message = `Must have values for keys: ${KEYS.join(", ")}`;
+  return func;
+}
 
 describe("checkers", () => {
   it("should return empty array", () => {

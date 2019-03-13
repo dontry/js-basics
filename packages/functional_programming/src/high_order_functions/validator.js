@@ -24,15 +24,4 @@ function validator(message, func) {
   return f;
 }
 
-function hasKeys() {
-  const KEYS = Array.from(arguments);
-  const func = function(obj) {
-    return KEYS.every(function(key) {
-      return _.has(obj, key);
-    });
-  };
-  func.message = `Must have values for keys: ${KEYS.join(", ")}`;
-  return func;
-}
-
-module.exports = { checker, validator, hasKeys };
+module.exports = { checker, validator };

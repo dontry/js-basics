@@ -14,4 +14,4 @@ function best(fun, collection) {
   });
 }
 
-module.exports = finder;
+module.exports = { finder, best };

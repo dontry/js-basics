@@ -1,5 +1,5 @@
 const dispatch = require("./dispatch");
-const invoker = require("../invoker");
+const invoker = require("../high_order_functions/invoker");
 
 describe("str", () => {
   const str = dispatch(

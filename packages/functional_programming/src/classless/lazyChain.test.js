@@ -4,7 +4,7 @@ const { validator } = require("../high_order_functions/validator");
 const pipeline = require("../flow-based/pipeline");
 const { partial1 } = require("../composer/partial");
 const precondition = require("../composer/precondition");
-const invoker = require("../invoker");
+const invoker = require("../high_order_functions/invoker");
 
 describe("lazyOp", () => {
   it("should return [0,1,2,3,7,7,8,9]", () => {

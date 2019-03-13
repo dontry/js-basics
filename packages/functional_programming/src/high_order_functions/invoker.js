@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const existy = require("./existy");
+const existy = require("../existy");
 
 function invoker(name, method) {
   return function(target) {
