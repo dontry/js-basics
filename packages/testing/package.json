@@ -30,7 +30,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./testing/node_modules/cz-conventional-changelog"
+      "path": "./packages/testing/node_modules/cz-conventional-changelog"
     }
   },
   "dependencies": {
