@@ -10,7 +10,7 @@
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "npm run prettier -- --write",
-    "validate-staged": "lint-staged && npm run test",
+    "validate-staged": "lint-staged",
     "validate": "npm run lint & npm run prettier -- --list-different && npm run flow",
     "flow": "flow"
   },
@@ -20,17 +20,19 @@
   "author": "dontry",
   "license": "MIT",
   "devDependencies": {
+    "assert": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.14.1",
     "eslint-config-prettier": "^4.1.0",
     "flow-bin": "^0.93.0",
+    "jest": "^24.5.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4"
   },
   "config": {
     "commitizen": {
-      "path": "./testing/node_modules/cz-conventional-changelog"
+      "path": "./packages/testing/node_modules/cz-conventional-changelog"
     }
   },
   "dependencies": {
