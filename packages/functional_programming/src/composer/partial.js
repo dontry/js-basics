@@ -15,4 +15,11 @@ function partial1(func, arg1) {
   };
 }
 
-module.exports = { partial, partial1 };
+function partial2(func, arg1, arg2) {
+  return function() {
+    const args = cat([arg1, arg2], arguments);
+    return func.apply(func, args);
+  };
+}
+
+module.exports = { partial, partial1, partial2 };
