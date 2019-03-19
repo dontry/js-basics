@@ -53,3 +53,7 @@ Adding these two lines to my user settings.json
     "flow.useNPMPackagedFlow": true,
     "javascript.validate.enable": false,
 ```
+
+## React Eslint
+
+https://www.robinwieruch.de/react-eslint-webpack-babel/

@@ -1,13 +1,22 @@
 {
   "parser": "babel-eslint",
-  "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": { "jsx": true }
+  },
   "env": {
     "browser": true,
     "jest": true,
     "node": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "eslint-config-prettier"],
+  "plugins": ["react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "eslint-config-prettier"
+  ],
   "rules": {
     "valid-typeof": "error",
     "no-unused-vars": "warn"
