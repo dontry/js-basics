@@ -4,6 +4,7 @@ module.exports = {
   testEnvironment: "jest-environment-jsdom",
   //moduleNameMapper is a string regexp that matches the file we want to map to
   moduleNameMapper: {
+    "\\.module\\.css$": "identity-obj-proxy",
     "\\.css$": require.resolve("./src/__mocks__/style-mock.js")
   }
 };
