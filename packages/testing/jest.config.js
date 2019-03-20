@@ -1,3 +1,4 @@
+const path = require("path");
 //jest-environment-jsdom is browser env containing a window object
 module.exports = {
   // projects: ["./other/jest.config.js", "./other/jest.no-framework.config.js"],
@@ -11,5 +12,6 @@ module.exports = {
   //before Jest is loaded, doesn't rely on Jest
   setupFiles: [],
   //after Jest is loaded
-  setupFilesAfterEnv: [require.resolve("./setup-test.js")]
+  setupFilesAfterEnv: [require.resolve("./setup-test.js")],
+  moduleDirectories: ["node_modules", path.join(__dirname, "src"), "components"]
 };

@@ -11,7 +11,11 @@ const isTest = String(process.env.NODE_ENV) === "test";
 //That is failing our test because babel won't transpile this to commonjs.
 module.exports = {
   presets: [
-    ["@babel/preset-env", { modules: isTest ? "commonjs" : false }],
+    [
+      "@babel/preset-env",
+      //This option is useful for "blacklisting" a transform like @babel/plugin-transform-regenerator if you don't use generators and don't want to include regeneratorRuntime (when using useBuiltIns)
+      { modules: isTest ? "commonjs" : false, useBuiltIns: "usage" }
+    ],
     "@babel/preset-react"
   ],
   plugins: [
