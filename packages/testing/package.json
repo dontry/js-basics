@@ -32,6 +32,7 @@
     "assert": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-emotion": "^10.0.9",
     "create-jest-runner": "^0.5.0",
     "css-loader": "^2.1.1",
     "cz-conventional-changelog": "^2.1.0",
@@ -43,6 +44,7 @@
     "flow-bin": "^0.93.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.5.0",
+    "jest-emotion": "^10.0.9",
     "jest-worker": "^24.4.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
@@ -58,6 +60,9 @@
     }
   },
   "dependencies": {
+    "@emotion/core": "^10.0.9",
+    "@emotion/styled": "^10.0.9",
+    "emotion": "^10.0.9",
     "lint-staged": "^8.1.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",

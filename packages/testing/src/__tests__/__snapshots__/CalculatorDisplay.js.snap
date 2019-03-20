@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mounts 1`] = `
-<div
-  css="[object Object]"
->
-  <span>
-    <div
-      class="autoScalingText"
-      style="transform: scale(1,1);"
-    >
-      10
-    </div>
-  </span>
+exports[`renders with correct styles 1`] = `
+<div>
+  <div
+    css="[object Object]"
+  >
+    <span>
+      <div
+        class="autoScalingText"
+        style="transform: scale(1,1);"
+      >
+        10
+      </div>
+    </span>
+  </div>
 </div>
 `;
