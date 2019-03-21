@@ -18,5 +18,6 @@ module.exports = {
   //before Jest is loaded, doesn't rely on Jest
   setupFiles: [],
   //after Jest is loaded
-  setupFilesAfterEnv: [require.resolve("./setup-test.js")]
+  setupFilesAfterEnv: [require.resolve("./setup-test.js")],
+  collectCoverageFrom: ["**/src/**/*.js", "!**/src/lib/**"]
 };

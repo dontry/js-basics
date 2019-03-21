@@ -4,7 +4,7 @@
   "description": "testing javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "start": "node --require ./setup-global.js index.js",
