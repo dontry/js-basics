@@ -3,6 +3,12 @@ const path = require("path");
 module.exports = {
   // projects: ["./other/jest.config.js", "./other/jest.no-framework.config.js"],
   testEnvironment: "jest-environment-jsdom",
+  moduleDirectories: [
+    "node_modules",
+    path.join(__dirname, "src"),
+    "components",
+    "lib"
+  ],
   //moduleNameMapper is a string regexp that matches the file we want to map to
   moduleNameMapper: {
     "\\.module\\.css$": "identity-obj-proxy",
@@ -12,6 +18,5 @@ module.exports = {
   //before Jest is loaded, doesn't rely on Jest
   setupFiles: [],
   //after Jest is loaded
-  setupFilesAfterEnv: [require.resolve("./setup-test.js")],
-  moduleDirectories: ["node_modules", path.join(__dirname, "src"), "components"]
+  setupFilesAfterEnv: [require.resolve("./setup-test.js")]
 };

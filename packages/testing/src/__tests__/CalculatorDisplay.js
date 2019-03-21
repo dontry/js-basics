@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-testing-library";
+import { render } from "calculator-test-utils";
 import CalculatorDisplay from "../components/CalculatorDisplay";
 //We could actually snapshot container.innerHTML,
 //but the problem with that is any change to any of these attributes would negate the entire snapshot
