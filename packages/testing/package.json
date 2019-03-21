@@ -4,9 +4,10 @@
   "description": "testing javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "test:report": "jest  --coverage",
     "start": "node --require ./setup-global.js index.js",
     "commit": "git cz",
     "build": "webpack --mode=production",
