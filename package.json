@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lerna": "lerna",
+    "postinstall": "lerna bootstrap",
     "validate": "lerna run validate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
