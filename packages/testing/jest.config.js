@@ -18,5 +18,9 @@ module.exports = {
     // }
   },
   //Jest will combine the coverage report for both the client and the server
-  projects: ["./config/jest.client.js", "./config/jest.server.js"]
+  projects: [
+    "./config/jest.client.js",
+    "./config/jest.server.js",
+    "./config/jest.lint.js"
+  ]
 };

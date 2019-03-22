@@ -20,6 +20,7 @@ module.exports = {
   collectCoverageFrom: ["**/src/**/*.js", "!**/src/lib/**"],
   watchPlugins: [
     "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname"
+    "jest-watch-typeahead/testname",
+    "jest-watch-select-projects"
   ]
 };

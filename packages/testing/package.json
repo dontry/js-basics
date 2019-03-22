@@ -16,7 +16,7 @@
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "npm run prettier -- --write",
     "validate-staged": "lint-staged",
-    "validate": "npm run lint & npm run prettier -- --list-different  && npm run test"
+    "validate": "npm run prettier -- --list-different  && npm run test"
   },
   "keywords": [
     "test"
@@ -49,6 +49,8 @@
     "is-ci-cli": "^1.1.1",
     "jest": "^24.5.0",
     "jest-emotion": "^10.0.9",
+    "jest-runner-eslint": "^0.7.3",
+    "jest-watch-select-projects": "^0.1.1",
     "jest-watch-typeahead": "^0.2.1",
     "jest-worker": "^24.4.0",
     "lint-staged": "^8.1.5",
