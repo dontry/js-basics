@@ -11,7 +11,7 @@ install:
   - npm install
 script:
   - npm run validate
-after_script:
-  - npx codecov@3
+after_success:
+  - npx codecov
 branchs:
   only: master
