@@ -5,6 +5,8 @@
   "main": "memoize.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest  --watch",
+    "test:report": "jest --coverage",
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "npm run prettier -- --write",
@@ -15,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/jest": "^24.0.6",
+    "axios": "^0.18.0",
     "lint-staged": "^8.1.5",
     "lodash": "^4.17.11"
   },

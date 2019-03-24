@@ -66,7 +66,7 @@ A dispatch eliminates is the switch statement manual dispatch
 
 4. [precondition](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/precondition.js)
 
-5. [compose](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/compose.test.js) Stiching Functions End-to-End with Compose
+5. [compose](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/compose.test.js) Sticthing Functions End-to-End with Compose
 
 ## Recursion
 

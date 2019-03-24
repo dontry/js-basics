@@ -1,6 +1,0 @@
-{
-  "name": "functional_programming",
-  "jest": {
-    "verbose": true
-  }
-}

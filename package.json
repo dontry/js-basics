@@ -15,7 +15,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run validate-staged"
+      "pre-commit": "lerna run validate-staged",
+      "pre-push": "lerna run validate"
     }
   },
   "author": "",
