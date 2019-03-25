@@ -1,25 +1,45 @@
-import { sum, subtract, sumAsync, subtractAsync } from "./math";
+import "./global.css";
+import React from "react";
+import { Router } from "@reach/router";
+import Component from "@reach/component-component";
+import ReactDOM from "react-dom";
+import LoginForm from "./components/LoginForm";
+import LoadUser from "./components/LoadUser";
+import App from "./app";
 
-test("sum adds numbers", () => {
-  const result = sum(3, 7);
-  const expected = 10;
-  expect(result).toBe(expected);
-});
+if (module.hot) {
+  module.hot.accept();
+}
 
-test("subtract subtracts numbers", () => {
-  const result = subtract(7, 3);
-  const expected = 4;
-  expect(result).toBe(expected);
-});
-
-test("sumAsync adds numbers asynchronously", async () => {
-  const result = await sumAsync(3, 7);
-  const expected = 10;
-  expect(result).toBe(expected);
-});
-
-test("subtractAsync subtracts numbers asynchronously", async () => {
-  const result = await subtractAsync(7, 3);
-  const expected = 4;
-  expect(result).toBe(expected);
-});
+ReactDOM.render(
+  <Component initialState={{}}>
+    {({ state, setState }) => (
+      <LoadUser
+        user={state.user}
+        setUser={loadedUser => setState({ user: loadedUser })}
+      >
+        <Router>
+          <App
+            path="/"
+            user={state.user}
+            logout={() => {
+              window.localStorage.removeItem("token");
+              setState({ user: null });
+            }}
+          />
+          <LoginForm
+            path="/register"
+            endpoint="register"
+            onSuccess={user => setState({ user })}
+          />
+          <LoginForm
+            path="/login"
+            endpoint="login"
+            onSuccess={user => setState({ user })}
+          />
+        </Router>
+      </LoadUser>
+    )}
+  </Component>,
+  document.getElementById("app")
+);

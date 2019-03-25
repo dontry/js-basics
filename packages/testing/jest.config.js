@@ -1,8 +1,8 @@
-const path = require("path");
 //jest-environment-jsdom is browser env containing a window object
 module.exports = {
   ...require("./config/jest.common"),
   collectCoverageFrom: ["**/src/**/*.js"],
+  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/cypress/"],
   coverageThreshold: {
     global: {
       statements: 10,

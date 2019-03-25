@@ -1,13 +1,18 @@
 const path = require("path");
 
+const ROOT_DIR = path.resolve(__dirname);
+const SOURCE_DIR = path.resolve(ROOT_DIR, "src");
+const BUILD_DIR = path.resolve(ROOT_DIR, "dist");
+
 module.exports = {
-  entry: "./src/index.js",
+  entry: path.join(SOURCE_DIR, "index.js"),
   output: {
-    path: path.resolve("dist"),
+    path: BUILD_DIR,
     filename: "bundle.js"
   },
   resolve: {
-    modules: ["node_modules", path.join(__dirname, "src"), "components"]
+    modules: ["node_modules", SOURCE_DIR, "components"],
+    extensions: [".js", ".jsx", ".json"]
   },
   module: {
     rules: [

@@ -11,9 +11,10 @@ module.exports = {
     browser: true,
     jest: true,
     node: true,
-    es6: true
+    es6: true,
+    "cypress/globals": true
   },
-  plugins: ["import", "react"],
+  plugins: ["import", "react", "eslint-plugin-cypress"],
   extends: [
     "eslint:recommended",
     // "plugin:import/errors", //TOFIX: import unresolved haven't fixed
