@@ -1,18 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders with correct styles 1`] = `
+.emotion-0 {
+  color: white;
+  background: #1c191c;
+  line-height: 130px;
+  font-size: 6em;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
+.emotion-0 {
+  color: white;
+  background: #1c191c;
+  line-height: 130px;
+  font-size: 6em;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
 <div>
   <div
-    css="css-dsv2dj-CalculatorDisplay"
+    class="emotion-0 emotion-1"
   >
-    <span>
-      <div
-        class="autoScalingText"
-        style="transform: scale(1,1);"
-      >
-        10
-      </div>
-    </span>
+    <div
+      class="autoScalingText"
+      style="transform: scale(1,1);"
+    >
+      10
+    </div>
   </div>
 </div>
 `;

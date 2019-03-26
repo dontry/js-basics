@@ -1,7 +1,7 @@
 const path = require("path");
 
 const ROOT_DIR = path.resolve(__dirname);
-const SOURCE_DIR = path.resolve(ROOT_DIR, "src");
+const SOURCE_DIR = path.join(ROOT_DIR, "src");
 const BUILD_DIR = path.resolve(ROOT_DIR, "dist");
 
 module.exports = {
@@ -38,6 +38,12 @@ module.exports = {
         use: "file-loader"
       }
     ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "./public"),
+    historyApiFallback: true,
+    // compress: true,
+    port: 9000
   }
 };
 

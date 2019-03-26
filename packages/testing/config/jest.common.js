@@ -3,7 +3,6 @@ const path = require("path");
 module.exports = {
   // projects: ["./other/jest.config.js", "./other/jest.no-framework.config.js"],
   rootDir: path.join(__dirname, ".."),
-  testPathIgnorePatterns: ["/node_modules/", "<rootDir>/cypress/"],
   moduleDirectories: [
     "node_modules",
     path.join(__dirname, "../src"),

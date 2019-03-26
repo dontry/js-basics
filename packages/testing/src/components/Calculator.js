@@ -2,6 +2,7 @@ import React from "react";
 import PointTarget from "react-point";
 import loadable from "react-loadable";
 import PropTypes from "prop-types";
+import CalculatorDisplayxx from "./CalculatorDisplay";
 import styles from "./calculator.module.css";
 
 //In Calculator.js we're importing calculator-display as if it were a node module, but it's not a node module.
@@ -9,7 +10,7 @@ import styles from "./calculator.module.css";
 //The way that it works in the app is we have our webpack configuration set to resolve modules to node_modules, j
 //ust like node would in a regular commonJS environment.
 const CalculatorDisplay = loadable({
-  loader: () => import("CalculatorDisplay").then(mod => mod.default),
+  loader: () => import("./CalculatorDisplay").then(mod => mod.default),
   loading: () => <div style={{ height: 120 }}>Loading display...</div>
 });
 

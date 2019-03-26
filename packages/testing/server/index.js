@@ -8,7 +8,7 @@ const debug = getDebugger("app");
 const users = {};
 
 async function start({ port } = {}) {
-  port = port || process.env.PORT || (await detectPort(3000));
+  port = port || process.env.PORT || (await detectPort(3001));
 
   const app = express();
   app.use(cors());
