@@ -9,6 +9,7 @@ module.exports = {
     "components",
     __dirname
   ],
+  testPathIgnorePatterns: ["<rootDir>/cypress/"],
   //moduleNameMapper is a string regexp that matches the file we want to map to
   moduleNameMapper: {
     "\\.module\\.css$": "identity-obj-proxy",

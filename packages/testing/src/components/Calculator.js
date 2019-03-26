@@ -2,7 +2,6 @@ import React from "react";
 import PointTarget from "react-point";
 import loadable from "react-loadable";
 import PropTypes from "prop-types";
-import CalculatorDisplayxx from "./CalculatorDisplay";
 import styles from "./calculator.module.css";
 
 //In Calculator.js we're importing calculator-display as if it were a node module, but it's not a node module.
