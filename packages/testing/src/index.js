@@ -13,33 +13,41 @@ if (module.hot) {
 
 ReactDOM.render(
   <Component initialState={{}}>
-    {({ state, setState }) => (
-      <LoadUser
-        user={state.user}
-        setUser={loadedUser => setState({ user: loadedUser })}
-      >
-        <Router>
-          <App
-            path="/"
-            user={state.user}
-            logout={() => {
-              window.localStorage.removeItem("token");
-              setState({ user: null });
-            }}
-          />
-          <LoginForm
-            path="/register"
-            endpoint="register"
-            onSuccess={user => setState({ user })}
-          />
-          <LoginForm
-            path="/login"
-            endpoint="login"
-            onSuccess={user => setState({ user })}
-          />
-        </Router>
-      </LoadUser>
-    )}
+    {({ state, setState }) => {
+      // eslint-disable-next-line no-debugger
+      // debugger;
+      // if (window.Cypress) {
+      //   window.appState = state;
+      //   window.setAppState = setState;
+      // }
+      return (
+        <LoadUser
+          user={state.user}
+          setUser={loadedUser => setState({ user: loadedUser })}
+        >
+          <Router>
+            <App
+              path="/"
+              user={state.user}
+              logout={() => {
+                window.localStorage.removeItem("token");
+                setState({ user: null });
+              }}
+            />
+            <LoginForm
+              path="/register"
+              endpoint="register"
+              onSuccess={user => setState({ user })}
+            />
+            <LoginForm
+              path="/login"
+              endpoint="login"
+              onSuccess={user => setState({ user })}
+            />
+          </Router>
+        </LoadUser>
+      );
+    }}
   </Component>,
   document.getElementById("app")
 );

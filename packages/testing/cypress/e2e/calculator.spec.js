@@ -5,6 +5,10 @@ describe("calculator", () => {
       .click()
       .getByText(/^\+$/)
       .click()
+      .then(subject => {
+        debugger
+        return subject
+      })
       .getByText(/^2$/)
       .click()
       .getByText(/^=$/)
@@ -13,3 +17,4 @@ describe("calculator", () => {
       .should("have.text", "3");
   });
 });
+

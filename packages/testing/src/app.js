@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "emotion-theming";
 import Calculator from "./components/Calculator";
+import { Link } from "@reach/router";
 import * as themes from "./themes";
 
 class App extends React.Component {
@@ -22,7 +23,7 @@ class App extends React.Component {
                   type="radio"
                   name="theme"
                   value="light"
-                />{" "}
+                />
                 light
               </label>
               <label>
@@ -32,10 +33,29 @@ class App extends React.Component {
                   type="radio"
                   name="theme"
                   value="dark"
-                />{" "}
+                />
                 dark
               </label>
             </fieldset>
+          </div>
+          <div
+            css={{
+              display: "flex",
+              marginTop: 10,
+              marginBottom: 10,
+              justifyContent: "space-around"
+            }}
+          >
+            {this.props.user ? (
+              <button type="button" onClick={this.props.logout}>
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/register">Register</Link>
+                <Link to="/login">Login</Link>
+              </>
+            )}
           </div>
           <div style={{ marginTop: 30, textAlign: "center" }}>
             Calculator component
