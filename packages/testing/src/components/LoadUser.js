@@ -13,7 +13,7 @@ function LoadUser({ user, setUser, children }) {
       didMount={() => {
         axios({
           method: "GET",
-          url: "http://localhost:3000/me",
+          url: "http://localhost:3001/me",
           headers: {
             Authorization: `Bearer ${token}`
           }

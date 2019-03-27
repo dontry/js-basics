@@ -6,8 +6,7 @@ describe("calculator", () => {
       .getByText(/^\+$/)
       .click()
       .then(subject => {
-        debugger
-        return subject
+        return subject;
       })
       .getByText(/^2$/)
       .click()
@@ -18,3 +17,18 @@ describe("calculator", () => {
   });
 });
 
+describe("authenticated calculator", () => {
+  it("displays the username", () => {
+    cy.loginAsNewUser().then(user => {
+      cy.visit("/")
+        .getByTestId("username-display")
+        .should("have.text", user.username)
+        .getByText(/logout/i)
+        .click()
+        //To assert that something does not exist. We'll use a queryByTestId,
+        //Because using getBy will throw an error if it doesn't exist
+        .queryByTestId("username-display", { timeout: 300 })
+        .should("not.exist");
+    });
+  });
+});
