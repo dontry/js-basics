@@ -12,11 +12,7 @@ describe("login", () => {
         .click()
         // Now let's verify things after login
         .assertHome()
-        .window()
-        .its("localStorage.token")
-        .should("be.a", "string")
-        .getByTestId("username-display", { timeout: 500 })
-        .should("have.text", user.username);
+        .assertLoggedInAs(user);
     });
   });
 });

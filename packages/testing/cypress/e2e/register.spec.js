@@ -14,10 +14,7 @@ describe("registration", () => {
       .getByText(/submit/i)
       .click()
       .assertHome()
-      .window()
-      .its("localStorage.token")
-      .should("be.a", "string")
-      .getByTestId("username-display", { timeout: 500 });
+      .assertLoggedInAs(user);
   });
 
   it("should show an error message if there's an error registering", () => {

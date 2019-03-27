@@ -36,5 +36,13 @@ Cypress.Commands.add("createUser", overrides => {
 });
 
 Cypress.Commands.add("assertHome", () => {
-  cy.url().should("eq", `${Cypress.config().baseUrl}`);
+  cy.url().should("eq", `${Cypress.config().baseUrl}/`);
+});
+
+Cypress.Commands.add("assertLoggedInAs", user => {
+  cy.window()
+    .its("localStorage.token")
+    .should("be.a", "string")
+    .getByTestId("username-display", { timeout: 500 })
+    .should("have.text", user.username);
 });
