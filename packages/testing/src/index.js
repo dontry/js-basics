@@ -1,4 +1,5 @@
 import "./global.css";
+import "./react-dev-tool";
 import React from "react";
 import { Router } from "@reach/router";
 import Component from "@reach/component-component";
