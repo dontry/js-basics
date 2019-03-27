@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { ThemeProvider } from "emotion-theming";
 import Calculator from "./components/Calculator";
@@ -47,9 +48,14 @@ class App extends React.Component {
             }}
           >
             {this.props.user ? (
-              <button type="button" onClick={this.props.logout}>
-                Logout
-              </button>
+              <>
+                <div data-testid="username-display">
+                  {this.props.user.username}
+                </div>
+                <button type="button" onClick={this.props.logout}>
+                  Logout
+                </button>
+              </>
             ) : (
               <>
                 <Link to="/register">Register</Link>
