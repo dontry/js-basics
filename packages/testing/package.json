@@ -8,6 +8,12 @@
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test:report": "jest  --coverage",
+    "cy:run": "cypress run",
+    "cy:dev": "cypress open",
+    "pretest:e2e:run": "npm run build",
+    "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
+    "test:e2e:run": "start-server-and-test start http://localhost:8080 cy:run",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:8080 cy:dev",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "node server",
     "dev:client": "webpack-dev-server --config ./webpack.config.js --mode=development",
@@ -20,8 +26,8 @@
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "npm run prettier -- --write",
-    "validate-staged": "lint-staged",
-    "validate": "npm run prettier -- --list-different  && npm run test"
+    "validate-staged": "lint-staged && npm run test:e2e:run",
+    "validate": "npm run prettier -- --list-different  && npm run test:coverage && npm run test:e2e:run"
   },
   "keywords": [
     "test"
@@ -65,6 +71,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
     "react-testing-library": "^6.0.0",
+    "start-server-and-test": "^1.7.12",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",

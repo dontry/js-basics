@@ -29,6 +29,7 @@ exports[`renders with correct styles 1`] = `
   >
     <div
       class="autoScalingText"
+      data-testid="total"
       style="transform: scale(1,1);"
     >
       10
