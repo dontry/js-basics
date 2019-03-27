@@ -34,3 +34,7 @@ Cypress.Commands.add("createUser", overrides => {
     body: user
   }).then(({ body }) => body.user);
 });
+
+Cypress.Commands.add("assertHome", () => {
+  cy.url().should("eq", `${Cypress.config().baseUrl}`);
+});

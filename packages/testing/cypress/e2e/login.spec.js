@@ -11,8 +11,7 @@ describe("login", () => {
         .getByText(/submit/i)
         .click()
         // Now let's verify things after login
-        .url()
-        .should("eq", `${Cypress.config().baseUrl}`)
+        .assertHome()
         .window()
         .its("localStorage.token")
         .should("be.a", "string")

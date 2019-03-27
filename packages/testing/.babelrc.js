@@ -23,14 +23,13 @@ module.exports = {
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     [
-      ("emotion",
+      "emotion",
       {
-        hoist: !isProd,
         sourceMap: !isProd,
         autoLabel: !isProd,
-        labelFormat: "[local]",
+        labelFormat: "[filename]--[local]",
         cssPropOptimization: true
-      })
+      }
     ],
     "react-loadable/babel",
     isTest ? "babel-plugin-dynamic-import-node" : null
