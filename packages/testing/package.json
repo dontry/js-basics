@@ -73,6 +73,7 @@
     "react-testing-library": "^6.0.0",
     "start-server-and-test": "^1.7.12",
     "style-loader": "^0.23.1",
+    "test-data-bot": "^0.8.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-serve": "^3.0.0-beta.3"
