@@ -1,3 +1,5 @@
+import { userBuilder } from "./generate";
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +25,12 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("createUser", overrides => {
+  const user = userBuilder();
+  cy.request({
+    url: "http://localhost:3001/register",
+    method: "POST",
+    body: user
+  }).then(({ body }) => body.user);
+});
