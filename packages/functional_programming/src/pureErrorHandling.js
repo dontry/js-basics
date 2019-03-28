@@ -1,4 +1,5 @@
 const moment = require("moment");
+const _ = require("lodash");
 
 const Left = function(x) {
   this._value = x;
@@ -45,3 +46,12 @@ const left = getAge(moment(), {
   birthdate: "July 4, 2001"
 });
 left;
+
+const either = _.curry(function(f, g, e) {
+  switch (e.constructor) {
+    case Left:
+      return f(e._value);
+    case Right:
+      return g(e._value);
+  }
+});

@@ -14,7 +14,8 @@ Identity.prototype.map = function(f) {
 };
 
 //An applicative functor is a pointed functor with an ap method
-//“F.of(x).map(f) == F.of(f).ap(F.of(x))
+//F.of(x).map(f) == F.of(f).ap(F.of(x))
+//functorX.map(f) = functorf.ap(functorX)
 Identity.prototype.ap = function(otherIdentifier) {
   return otherIdentifier.map(this._value);
 };
