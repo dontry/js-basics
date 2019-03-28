@@ -2,7 +2,7 @@ const { Identity, Maybe } = require("./mighty-identity");
 
 describe("mighty Identity", () => {
   it("should return Identity(4)", () => {
-    const res = Identity.of(2).project(v => v + 2);
+    const res = Identity.of(2).map(v => v + 2);
     expect(res).toEqual(new Identity(4));
   });
 });
@@ -15,12 +15,12 @@ describe("Maybe", () => {
   });
 
   it("should return null", () => {
-    const res = Maybe.of(null).project(str => str.match(/n/gi));
+    const res = Maybe.of(null).map(str => str.match(/n/gi));
     expect(res.__value).toEqual(null);
   });
 
-  it("should returl null", () => {
-    const res = Maybe.of("hahaha").project(str => str.match(/n/gi));
+  it("should return null", () => {
+    const res = Maybe.of("hahaha").map(str => str.match(/n/gi));
     expect(res.__value).toEqual(null);
   });
 });
