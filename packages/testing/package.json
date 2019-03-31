@@ -4,10 +4,10 @@
   "description": "testing javascript",
   "main": "index.js",
   "scripts": {
-    "test": "is-ci \"test:report\" \"test:watch\"",
+    "test": "is-ci \"test:coverage\" \"test:watch\"",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
-    "test:report": "jest  --coverage",
+    "test:coverage": "jest  --coverage",
     "cy:run": "cypress run",
     "cy:dev": "cypress open",
     "pretest:e2e:run": "npm run build",
