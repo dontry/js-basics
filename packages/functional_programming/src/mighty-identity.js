@@ -41,7 +41,7 @@ Maybe.prototype.isNothing = function() {
   return this.__value === null || this.__value === undefined;
 };
 
-Maybe.prototype.project = function(f) {
+Maybe.prototype.map = function(f) {
   return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this.__value));
 };
 

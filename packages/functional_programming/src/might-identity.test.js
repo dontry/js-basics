@@ -10,7 +10,7 @@ describe("mighty Identity", () => {
 
 describe("Maybe", () => {
   it("should return [n,n]", () => {
-    const res = Maybe.of("Japanese, Chinese").project(str => str.match(/n/gi));
+    const res = Maybe.of("Japanese, Chinese").map(str => str.match(/n/gi));
     expect(res.__value).toEqual(["n", "n"]);
   });
 

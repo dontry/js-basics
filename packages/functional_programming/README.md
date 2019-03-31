@@ -84,9 +84,9 @@ Self-recursive functions are as follows(Touretzky 1990):
 
 2. [unzip](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/recursion/constructPair.js)
 
-3. [trampoline](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/recursion/trampoline.js) The typical recursive functions could sometimes blow the stack. A trampoline flattens out the calls instead of a deeply nested recursive call.
+3. [trampoline](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/recursion/trampoline.js) All that trampoline does is repeatedly call the return value of a function until it’s no longer a function.
 
-4. [generator](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/recursion/generator.js) In generate, the tail is not executed before access which means every access requires a recomputation.
+4. [generator](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/recursion/generator.js) In generator, the tail is not executed before access which means every access requires a recomputation.
 
 ## Purity, Immutability, and Policies for Change
 
