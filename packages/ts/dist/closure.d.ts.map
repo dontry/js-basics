@@ -1,0 +1,1 @@
+{"version":3,"file":"closure.d.ts","sourceRoot":"","sources":["../src/closure.ts"],"names":[],"mappings":"AAAA,cAAM,OAAO;IACX,OAAO,CAAC,MAAM,CAAC,QAAQ,CAAK;IAC5B,OAAO,CAAC,MAAM,CAAS;;IAIvB,OAAO,CAAC,SAAS;IAIV,SAAS,IAAI,IAAI;IAIjB,KAAK,IAAI,MAAM;CAGvB"}
