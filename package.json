@@ -13,11 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/dontry/js-basics.git"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lerna run validate-staged"
-    }
-  },
   "author": "",
   "license": "ISC",
   "bugs": {
