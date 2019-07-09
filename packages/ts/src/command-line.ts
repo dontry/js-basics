@@ -16,22 +16,15 @@ export class Args {
   private argsFound: Set<string>;
   private currentArgument: Iterator<string>;
   private argsList: string[];
-  private unexpectedArguments: Set<string>;
-  private errorParameter: string;
-  private errorCode: ErrorCode;
-  private valid: boolean;
 
   constructor(schema: string, args: string[]) {
     this.schema = schema;
     this.argsList = args;
     this.marshalers = new Map();
     this.argsFound = new Set();
-    this.unexpectedArguments = new Set();
-    this.errorParameter = "TILT";
-    this.errorCode = ErrorCode.OK;
-    this.valid = true;
     this.argsList = Array.from(args);
     this.currentArgument = createArrayIterator(this.argsList);
+    this.parse();
   }
 
   private parse() {
@@ -41,12 +34,12 @@ export class Args {
 
   private parseSchema(): boolean {
     const elements = this.schema.split(",");
-
-    elements.forEach((element: string) => {
-      const trimmedElement: string = element.trim();
-      this.parseSchemaElement(trimmedElement);
-    });
-
+    if (elements.length > 0 && elements[0] !== "") {
+      elements.forEach((element: string) => {
+        const trimmedElement: string = element.trim();
+        this.parseSchemaElement(trimmedElement);
+      });
+    }
     return true;
   }
 
@@ -71,17 +64,19 @@ export class Args {
   }
 
   validateSchemaElementId(elementId: string): void {
-    if (!this.isLetter(elementId)) {
+    if (!Args.isLetter(elementId)) {
       throw new ArgsException(ErrorCode.INVALID_ARGUMENT_NAME, elementId);
     }
   }
 
   private parseArguments(): boolean {
-    let done = false;
-    while (!done) {
-      const result = this.currentArgument.next();
-      done = result.done;
-      this.parseArgument(result.value);
+    if (this.argsList.length > 0) {
+      let done = false;
+      while (!done) {
+        const result = this.currentArgument.next();
+        done = result.done;
+        this.parseArgument(result.value);
+      }
     }
     return true;
   }
@@ -102,9 +97,7 @@ export class Args {
     if (this.setArgument(argChar)) {
       this.argsFound.add(argChar);
     } else {
-      this.unexpectedArguments.add(argChar);
-      this.errorCode = ErrorCode.UNEXPECTED_ARGUMENT;
-      this.valid = false;
+      throw new ArgsException(ErrorCode.UNEXPECTED_ARGUMENT, argChar, null);
     }
   }
 
@@ -113,14 +106,11 @@ export class Args {
     if (am == null) {
       return false;
     }
-
     try {
       const result = this.currentArgument.next();
       am.set(result.value);
       return true;
     } catch (e) {
-      this.valid = false;
-
       throw e;
     }
   }
@@ -137,8 +127,8 @@ export class Args {
     }
   }
 
-  private isLetter(char: string): boolean {
-    const regex = /[a-z](1)/i;
+  static isLetter(char: string): boolean {
+    const regex = /[a-z]{1}/i;
     return regex.test(char);
   }
 
@@ -176,32 +166,7 @@ export class Args {
       return 0;
     }
   }
-
-  public isValid() {
-    return this.valid;
-  }
 }
-
-// interface ArgumentMarshaler {
-//   set(currentArgument: Iterator<string>): void;
-// }
-
-// class BooleanArgumentMarshaler implements ArgumentMarshaler {
-//   private booleanValue: boolean = false;
-//   constructor(parameters) {}
-
-//   public set(currentArgument: Iterator<string>): void {
-//     this.booleanValue = true;
-//   }
-
-//   public static getValue(am: ArgumentMarshaler): boolean {
-//     if (am !== null && am instanceof BooleanArgumentMarshaler) {
-//       return (am as BooleanArgumentMarshaler).booleanValue;
-//     } else {
-//       return false;
-//     }
-//   }
-// }
 
 abstract class ArgumentMarshaler {
   public abstract set(argChar: string): void;
@@ -242,7 +207,7 @@ class NumberArgumentMarshaler extends ArgumentMarshaler {
   }
 }
 
-enum ErrorCode {
+export enum ErrorCode {
   OK,
   UNEXPECTED_ARGUMENT,
   MISSING_STRING,
@@ -259,6 +224,26 @@ export class ArgsException extends Error {
     private errorParameter: string | null = null
   ) {
     super();
+  }
+
+  public getErrorCode(): ErrorCode {
+    return this.errorCode;
+  }
+
+  public getErrorArgumentId(): string {
+    return this.errorArgumentId;
+  }
+
+  public getErrorParameter(): string | null {
+    return this.errorParameter;
+  }
+
+  public setErrorArgumentId(argId: string): void {
+    this.errorArgumentId = argId;
+  }
+
+  public setErrorParameter(param: string): void {
+    this.errorParameter = param;
   }
 
   public errorMessage() {
