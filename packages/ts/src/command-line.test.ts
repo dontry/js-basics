@@ -1,8 +1,9 @@
-import { Args, BooleanArgumentMarshaler } from "./command-line";
+import { Args } from "./command-line";
 
-describe("Marshaler", () => {
-  test("BooleanArgumentMarshaler", () => {
-    const am = new BooleanArgumentMarshaler();
+describe("Args", () => {
+  test("create with no schema or arguments", () => {
+    const args: Args = new Args("", []);
+    expect(args.cardinality()).toBe(0);
   });
 });
 

@@ -1,17 +1,16 @@
-// @ts-nocheck
-function main() {
-  const args = process.argv.slice(2);
-  try {
-    const arg = new Args("", args);
-  } catch (e) {
-    console.error("Error:", e.message);
-  }
-  args.forEach(arg => {
-    console.log(arg);
-  });
-}
+// function main() {
+//   const args = process.argv.slice(2);
+//   try {
+//     const arg = new Args("", args);
+//   } catch (e) {
+//     console.error("Error:", e.message);
+//   }
+//   args.forEach(arg => {
+//     console.log(arg);
+//   });
+// }
 
-class Args {
+export class Args {
   private schema: string;
   private marshalers: Map<string, ArgumentMarshaler>;
   private argsFound: Set<string>;
@@ -205,7 +204,7 @@ class Args {
 // }
 
 abstract class ArgumentMarshaler {
-  public abstract set(argChar: string);
+  public abstract set(argChar: string): void;
   public abstract get(): any;
 }
 
@@ -253,7 +252,7 @@ enum ErrorCode {
   INVALID_ARGUMENT_FORMAT
 }
 
-class ArgsException extends Error {
+export class ArgsException extends Error {
   constructor(
     private errorCode: ErrorCode = ErrorCode.OK,
     private errorArgumentId: string = "\0",
@@ -286,7 +285,7 @@ class ArgsException extends Error {
   }
 }
 
-function createArrayIterator(array) {
+function createArrayIterator(array: string[]) {
   const arr = array;
   let nextIndex = 0;
   const arrayIterator = {
@@ -305,5 +304,3 @@ function createArrayIterator(array) {
   };
   return arrayIterator;
 }
-
-main();
