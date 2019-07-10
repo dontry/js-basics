@@ -19,7 +19,6 @@ export class Args {
 
   constructor(schema: string, args: string[]) {
     this.schema = schema;
-    this.argsList = args;
     this.marshalers = new Map();
     this.argsFound = new Set();
     this.argsList = Array.from(args);
