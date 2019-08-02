@@ -1,7 +1,7 @@
 class ComparisonCompactor {
-  static ELLIPSIS: string = "...";
-  static DELTA_END: string = "]";
-  static DELTA_START: string = "[";
+  static readonly ELLIPSIS: string = "...";
+  static readonly DELTA_END: string = "]";
+  static readonly DELTA_START: string = "[";
   private suffixLength: number;
   private prefixLength: number;
 

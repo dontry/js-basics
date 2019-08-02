@@ -10,9 +10,10 @@ describe("Args", () => {
     try {
       new Args("", ["-x"]);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.UNEXPECTED_ARGUMENT);
-      expect(error.getErrorArgumentId()).toBe("x");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.UNEXPECTED_ARGUMENT);
+        expect(e.getErrorArgumentId()).toBe("x");
+      }
     }
   });
 
@@ -20,9 +21,10 @@ describe("Args", () => {
     try {
       new Args("", ["-x", "-y"]);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.UNEXPECTED_ARGUMENT);
-      expect(error.getErrorArgumentId()).toBe("x");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.UNEXPECTED_ARGUMENT);
+        expect(e.getErrorArgumentId()).toBe("x");
+      }
     }
   });
 
@@ -30,9 +32,10 @@ describe("Args", () => {
     try {
       new Args("*", []);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.INVALID_ARGUMENT_NAME);
-      expect(error.getErrorArgumentId()).toBe("*");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.INVALID_ARGUMENT_NAME);
+        expect(e.getErrorArgumentId()).toBe("*");
+      }
     }
   });
 
@@ -40,9 +43,10 @@ describe("Args", () => {
     try {
       new Args("f-", []);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.INVALID_ARGUMENT_FORMAT);
-      expect(error.getErrorArgumentId()).toBe("f");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.INVALID_ARGUMENT_FORMAT);
+        expect(e.getErrorArgumentId()).toBe("f");
+      }
     }
   });
 
@@ -63,9 +67,10 @@ describe("Args", () => {
     try {
       new Args("x*", ["-x"]);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.MISSING_NUMBER);
-      expect(error.getErrorArgumentId()).toBe("x");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.MISSING_NUMBER);
+        expect(e.getErrorArgumentId()).toBe("x");
+      }
     }
   });
 
@@ -87,9 +92,10 @@ describe("Args", () => {
     try {
       new Args("x#", ["-x"]);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.MISSING_NUMBER);
-      expect(error.getErrorArgumentId()).toBe("x");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.MISSING_NUMBER);
+        expect(e.getErrorArgumentId()).toBe("x");
+      }
     }
   });
 
@@ -97,10 +103,11 @@ describe("Args", () => {
     try {
       new Args("x#", ["-x", "xx"]);
     } catch (e) {
-      const error: ArgsException = e;
-      expect(error.getErrorCode()).toBe(ErrorCode.INVALID_NUMBER);
-      expect(error.getErrorArgumentId()).toBe("x");
-      expect(error.getErrorParameter()).toBe("xx");
+      if (e instanceof ArgsException) {
+        expect(e.getErrorCode()).toBe(ErrorCode.INVALID_NUMBER);
+        expect(e.getErrorArgumentId()).toBe("x");
+        expect(e.getErrorParameter()).toBe("xx");
+      }
     }
   });
 });
