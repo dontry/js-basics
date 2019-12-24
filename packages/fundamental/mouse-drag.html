@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.1/Rx.js"></script>
+
+    <style>
+      #box {
+        position: absolute;
+        background: rebeccapurple;
+        width: 100px;
+        height: 100px;
+        cursor: all-scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      const box = document.getElementById("box");
+      const body = document.body;
+      const mouseUp = Rx.Observable.fromEvent(box, "mouseup");
+      const mouseMove = Rx.Observable.fromEvent(body, "mousemove");
+      const mouseDown = Rx.Observable.fromEvent(box, "mousedown");
+
+      mouseDown
+        .map(event => mouseMove.takeUntil(mouseUp))
+        .concatAll()
+        .map(event => ({ x: event.clientX, y: event.clientY }))
+        .subscribe(pos => {
+          box.style.left = pos.x + "px";
+          box.style.top = pos.y + "px";
+        });
+    </script>
+  </body>
+</html>

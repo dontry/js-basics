@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.1/Rx.js"></script>
+    <style>
+      body {
+        height: 2000px;
+      }
+      #anchor {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background: yellow;
+      }
+      #video {
+        width: 500px;
+        height: 500px;
+        background: red;
+      }
+
+      #video.relative {
+        position: relative;
+      }
+
+      #video.fixed {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video" class="relative"></div>
+    <div id="anchor"></div>
+
+    <script>
+      const scroll = Rx.Observable.fromEvent(document, "scroll");
+
+      const video = document.getElementById("video");
+      const anchor = document.getElementById("anchor");
+
+      scroll
+        .map(() => anchor.getBoundingClientRect().bottom < 10)
+        .subscribe(bool => {
+          if (bool) {
+            video.className = "fixed";
+          } else {
+            video.className = "relative";
+          }
+        });
+    </script>
+  </body>
+</html>
