@@ -12,6 +12,8 @@
   "author": "dontry",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
     "redis": "^2.8.0"
   }
 }
