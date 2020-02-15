@@ -30,6 +30,19 @@ module.exports = {
   },
   overrides: [
     {
+      files: "**/*.*(ts|tsx)",
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        project: "./tsconfig.json"
+      },
+      plugins: ["@typescript-eslint/eslint-plugin"],
+      extends: [
+        "plugin:@typescript-eslint/eslint-recommended", // disable ts rules render unnecessary
+        "plugin:@typescript-eslint/recommended", // fix ts interface warning
+        "plugin:eslint-config-prettier/@typescript-eslint" // "eslint-config-prettier" is able to disable the rules from "typescript-eslint" that are not necessary.
+      ]
+    },
+    {
       files: ["**/__tests__/**", "**/components/**"],
       settings: {
         //For files that match '**/__tests__/** */. Anything in our tests directory will have this settings be overridden for import/resolver.
