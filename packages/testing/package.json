@@ -8,6 +8,7 @@
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test:coverage": "jest  --coverage",
+    "check-types": "tsc",
     "cy:run": "cypress run",
     "cy:dev": "cypress open",
     "pretest:e2e:run": "npm run build",
@@ -22,12 +23,13 @@
     "start:client": "serve --single --listen 8080 dist",
     "commit": "git cz",
     "build": "webpack --config ./webpack.config.js --mode=production",
+    "babel-build": "babel src --extensions .js,.ts,.tsx --out-dir babel-dist",
     "postbuild": "cp ./public/index.html ./dist/index.html",
     "lint": "eslint src",
     "prettier": "./node_modules/.bin/prettier  \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
     "format": "npm run prettier -- --write",
     "validate-staged": "lint-staged && npm run test:e2e:run",
-    "validate": "npm run prettier -- --list-different  && npm run test:coverage && npm run test:e2e:run"
+    "validate": "npm run checktype && npm run prettier -- --list-different  && npm run test:coverage && npm run test:e2e:run"
   },
   "keywords": [
     "test"
@@ -35,12 +37,14 @@
   "author": "dontry",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.8.3",
     "assert": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -74,6 +78,7 @@
     "start-server-and-test": "^1.7.12",
     "style-loader": "^0.23.1",
     "test-data-bot": "^0.8.0",
+    "typescript": "^3.7.5",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-serve": "^3.0.0-beta.3"

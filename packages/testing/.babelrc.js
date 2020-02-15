@@ -16,7 +16,8 @@ module.exports = {
       //This option is useful for "blacklisting" a transform like @babel/plugin-transform-regenerator if you don't use generators and don't want to include regeneratorRuntime (when using useBuiltIns)
       { modules: isTest ? "commonjs" : false, useBuiltIns: "usage" }
     ],
-    "@babel/preset-react"
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ],
   plugins: [
     "@babel/plugin-syntax-dynamic-import",
