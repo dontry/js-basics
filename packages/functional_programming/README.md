@@ -8,7 +8,7 @@ Any variable declared in JavaScript without the var keyword is created in the gl
 
 ### Lexical Scope
 
-Lexical scope refers to the visibility of a variable and its value analogous to its textual representation.
+Lexical scope refers to the visibility of a variable and its value analogous to its textual representation. In innermost variable value takes precedence when used within the function.
 
 ### Dynamic Scope
 
@@ -26,27 +26,27 @@ Dynamic scoping is built on the idea of a global table of named values. At the h
 
 ### Functions That Take Other Functions
 
-1.  [Finder](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/finder.js)
-2.  [Repeat](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/repeat.js)
-3.  [iterateUtil](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/iterateUtils.js), it takes two functions: a function that performs actions and another that works as a checker.
+1.  [Finder](./src/high_order_functions/finder.js)
+2.  [Repeat](/src/high_order_functions/repeat.js)
+3.  [iterateUtil](./src/high_order_functions/iterateUtils.js), it takes two functions: a function that performs actions and another that works as a checker.
 
 ### Functions That Returns Other Functions
 
-1. [Always](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/always.js)
+1. [Always](./src/high_order_functions/always.js)
 
-2. [Invoker](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/invoker.js)
+2. [Invoker](./src/high_order_functions/invoker.js)
 
-### A Function to Guard Against Nonexisitence: [fnull](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/fnull.js)
+### A Function to Guard Against Nonexisitence: [fnull](./src/high_order_functions/fnull.js)
 
 ### Object Validator
 
-- [validator](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/validator.js)
+- [validator](./src/high_order_functions/validator.js)
 
-- [checker](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/high_order_functions/validator.js): A combination of validators
+- [checker](./src/high_order_functions/validator.js): A combination of validators
 
 ### Functional Composition
 
-1. [dispatcher](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/dispatch.js)
+1. [dispatcher](./src/composer/dispatch.js)
 
    1. Make sure the target exists.
 
@@ -60,11 +60,11 @@ Dynamic scoping is built on the idea of a global table of named values. At the h
 
 A dispatch eliminates is the switch statement manual dispatch
 
-2. [curry](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/curry.js)
+2. [curry](./src/composer/curry.js)
 
-3. [partial](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/partial.js)
+3. [partial](./src/composer/partial.js)
 
-4. [precondition](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/precondition.js)
+4. [precondition](./src/composer/precondition.js)
 
 5. [compose](https://github.com/dontry/js-basics/blob/master/packages/functional_programming/src/composer/compose.test.js) Sticthing Functions End-to-End with Compose
 
