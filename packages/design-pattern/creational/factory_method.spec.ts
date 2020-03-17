@@ -14,10 +14,6 @@ let log = (str: string) => {
 };
 
 describe("factory method", () => {
-  beforeAll(() => {});
-
-  afterAll(() => {});
-
   it("should show home loan info", () => {
     const homeLoanCreator = new HomeLoanCreator();
     log = jest.fn();
