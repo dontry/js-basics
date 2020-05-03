@@ -1,5 +1,6 @@
 const { curry, curry2 } = require("./curry");
 const { checker, validator } = require("../high_order_functions/validator");
+const { countBy } = require("lodash");
 
 describe("curry", () => {
   it("should return [11, NaN, 3, 4]", () => {
@@ -29,5 +30,24 @@ describe("curry", () => {
 
     expect(withinRange(30)).toEqual(["must less than 20"]);
     expect(withinRange(0)).toEqual(["must greater than 10"]);
+  });
+});
+
+describe("curry2", () => {
+  it("song count", () => {
+    function songToString(song) {
+      return [song.artist, song.track].join(" - ");
+    }
+
+    const songCount = curry2(countBy)(songToString);
+
+    const plays = [
+      { artist: "Burial", track: "Archangel" },
+      { artist: "Burial", track: "Archangel" },
+      { artist: "Emeralds", track: "Stomp" },
+      { artist: "Burial", track: "Archangel" }
+    ];
+
+    expect(songCount(plays)["Burial - Archangel"]).toEqual(3);
   });
 });

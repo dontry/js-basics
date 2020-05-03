@@ -14,12 +14,12 @@ function hasKeys() {
 }
 
 describe("checkers", () => {
-  it("should return empty array", () => {
+  it("should return an empty array", () => {
     const alwaysPasses = checker(always(true), always(true));
     expect(alwaysPasses({})).toEqual([]);
   });
 
-  it("should return empty array", () => {
+  it("should return an array with failure message", () => {
     const fails = always(false);
     // @ts-ignore
     fails.message = "A failure";

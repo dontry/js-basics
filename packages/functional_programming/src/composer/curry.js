@@ -1,3 +1,9 @@
+/*
+  The operation of curry can be summarized as follows:
+   - Take a function
+   - Returns a function expecting one parameter
+*/
+
 function curry(func) {
   return function(arg) {
     return func(arg);
