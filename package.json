@@ -30,5 +30,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "crypto": "^1.0.1"
+  }
 }
