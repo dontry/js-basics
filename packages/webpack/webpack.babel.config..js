@@ -1,36 +1,10 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const  WebpackManifestPlugin  = require('webpack-manifest-plugin');
-
-
 
 module.exports = {
-  entry: {
-    app: "./src/main.js",
-    print: "./src/print.js",
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-  },
-  plugins: [
-    new WebpackManifestPlugin({
-      basePath: './src/',
-    }),
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./index.html",
-      title: 'output management'  // auto-generate a new index.html in dist folder
-    })
-    //   new MiniCssExtractPlugin({
-    //     filename: "[name]_[contenthash8].css",
-    //     chunkFilename: "[id].css"
-    //   })
-  ],
+  entry: "./main.js",
   output: {
-    filename: "[name].bundle.js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "./dist")
   },
   module: {
@@ -61,5 +35,11 @@ module.exports = {
       }
     ]
   },
+  // plugins: [
+  //   new MiniCssExtractPlugin({
+  //     filename: "[name]_[contenthash8].css",
+  //     chunkFilename: "[id].css"
+  //   })
+  // ],
   mode: "production"
 };
