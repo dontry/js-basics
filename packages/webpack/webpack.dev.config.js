@@ -1,27 +1,21 @@
 const path = require("path");
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-const smp = new SpeedMeasurePlugin();
 
 
 
-
-module.exports = smp.wrap({
+module.exports = {
   entry: {
     app: "./src/main.js",
     print: "./src/print.js",
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
   plugins: [
-    new BundleAnalyzerPlugin({ analyzerMode: 'static', generateStatsFile: true, }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: path.join(__dirname, 'build', 'vendor-manifest.json')
-    }),
     new WebpackManifestPlugin({
       basePath: './src/', // generate an asset manifest
     }),
@@ -52,20 +46,34 @@ module.exports = smp.wrap({
           //     hmr: process.env.NODE_ENV === "development"
           //   }
           // },
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: 2,
+              workerParallelJobs: 50,
+            }
+          },
           "style-loader",
           "css-loader"
         ]
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            esModule: false
-          }
-        }],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false
+            }
+          }],
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all', // indicates which chunks will be selected for optimization.  
+    },
+    usedExports: true, // Tells webpack to determine used exports for each module.
+  },
   mode: "development"
-});
+};
