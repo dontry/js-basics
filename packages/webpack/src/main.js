@@ -24,7 +24,7 @@ function component() {
   div.appendChild(btn);
 
   const pre = document.createElement('pre');
-  pre.innerHTML = element.innerHTML = [
+  pre.innerHTML = [
     'Hello webpack!',
     '5 cubed is equal to ' + cube(5)
   ].join('\n\n');

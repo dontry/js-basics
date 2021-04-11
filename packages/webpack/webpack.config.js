@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const ExampleWebpackPlugin = require('./src/example-plugin');
 const smp = new SpeedMeasurePlugin();
 
 
@@ -17,6 +18,7 @@ module.exports = smp.wrap({
     print: "./src/print.js",
   },
   plugins: [
+    new ExampleWebpackPlugin(),
     new BundleAnalyzerPlugin({ analyzerMode: 'static', generateStatsFile: true, }),
     new webpack.DllReferencePlugin({
       context: __dirname,
@@ -41,6 +43,12 @@ module.exports = smp.wrap({
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: path.resolve(__dirname, './src/example-loader.js'),
+        }
+      },
       {
         test: /\.css$/,
         use: [
